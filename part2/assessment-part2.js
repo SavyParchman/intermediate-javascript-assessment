@@ -43,9 +43,11 @@ function noWeakLink() {
     method: 'GET',
     url: '/api/users'
   })
-  // CODE HERE...
-
-}
+  //.then(function(response) {
+   // response = firstUser;
+   
+  //}
+};
 
 
 
@@ -74,7 +76,7 @@ function large() {
   return 'My name is ' + this.name + ' and I am very heavy!'
 }
 // CODE HERE...
-
+var boundToElephant = large.bind(elephant);
 
 
 // *************
@@ -88,7 +90,9 @@ function large() {
 // and return the bound function.
 
 // CODE HERE...
-
+function deathStar(capacity, crew) {
+  return capacity.bind(crew)
+}
 
 
 // *************
@@ -103,7 +107,11 @@ function large() {
 // The closure function will return the combined value of assets and liabilities.
 
 // CODE HERE...
-
+function accountingOffice(assests) {
+  return function accountant(liabilities) {
+    return (assests + liabilities);
+  }
+}
 
 
 // *************
@@ -128,7 +136,16 @@ function large() {
 // };
 
 // CODE HERE...
-
+function forgetter(name) {
+  var thingsremembered = [];
+  return function rememberall(item) {
+    thingsremembered.push(item)
+    return {
+      name: name,
+      remember: thingsremembered
+    }
+  }
+}''
 
 
 // *************

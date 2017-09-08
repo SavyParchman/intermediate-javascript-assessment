@@ -13,8 +13,14 @@
 // return the result of your updateAnimal invocation
 
 // CODE HERE...
-
-
+function callBinding(updateAnimal, magicAnimals, id) {
+    for (var i = 0; i < magicAnimals.length; i++) {
+        if (magicAnimals[i] === id) {
+          return updateAnimal.call(magicAnimals['Trogdor'])
+        }
+    }
+    
+  };
 
 // *************
 // * PROBLEM 2 *
@@ -29,6 +35,14 @@
 
 // CODE HERE...
 
+function applyBinding(updateAnimal, magicAnimals, id) {
+    for (var i = 0; i < magicAnimals.length; i++) {
+        if (magicAnimals[i] === id) {
+           return updateAnimal.apply(magicAnimals[i], ['being majestic', 'eating rainbows'])
+        }
+    }
+    
+  };
 
 
 // *************
@@ -46,9 +60,15 @@
 // NOTE: Manually invoking your function here will alter the 'foo' variable before tests run, causing them to fail.
 
 var foo;
-
 // CODE HERE...
+var deffered = $q.defer()
 
+function promiseMe() {
+  setTimeout(function() {
+    deffered.resolve(foo = 'bar')
+  }, 2000)
+  return deffered.promise;
+}
 
 
 // *************
